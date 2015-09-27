@@ -17,6 +17,8 @@ public abstract class PC {
     private String name;
     private String race;
     private String role;
+    private Integer tile;
+    private Integer square;
 
     private boolean slowed;
     private boolean immobilized;
