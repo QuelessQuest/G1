@@ -1,5 +1,8 @@
 package com.barrypress.wiz.character.power;
 
+import com.barrypress.wiz.character.PC;
+import com.barrypress.wiz.utility.Constants;
+
 public abstract class Power {
 
     public enum PowerType {UTILITY, AT_WILL, DAILY};
@@ -8,12 +11,14 @@ public abstract class Power {
     private boolean used;
     private String name;
     private String description;
+    private Constants.Phase phase;
+    private Constants.Role role;
 
     public Power() {
         used = false;
     }
 
-    public abstract void activate();
+    public abstract void activate(PC pc);
 
     public PowerType getPowerType() {
         return powerType;
@@ -45,5 +50,21 @@ public abstract class Power {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Constants.Phase getPhase() {
+        return phase;
+    }
+
+    public void setPhase(Constants.Phase phase) {
+        this.phase = phase;
+    }
+
+    public Constants.Role getRole() {
+        return role;
+    }
+
+    public void setRole(Constants.Role role) {
+        this.role = role;
     }
 }

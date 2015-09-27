@@ -1,55 +1,19 @@
 package com.barrypress.wiz.character;
 
 import com.barrypress.wiz.character.power.Power;
+import com.barrypress.wiz.object.Buff;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public abstract class PC {
 
-    public enum BuffType {AC, HP, SPEED};
-
-    private class Buff {
-        private BuffType type;
-        private Integer amount;
-        private Integer duration;
-
-        public Buff(BuffType type, Integer amount, Integer duration) {
-            this.type = type;
-            this.amount = amount;
-            this.duration = duration;
-        }
-
-        public BuffType getType() {
-            return type;
-        }
-
-        public void setType(BuffType type) {
-            this.type = type;
-        }
-
-        public Integer getAmount() {
-            return amount;
-        }
-
-        public void setAmount(Integer amount) {
-            this.amount = amount;
-        }
-
-        public Integer getDuration() {
-            return duration;
-        }
-
-        public void setDuration(Integer duration) {
-            this.duration = duration;
-        }
-    }
-
     private Integer ac;
     private Integer hp;
     private Integer maxHp;
     private Integer speed;
     private Integer surge;
+    private Integer level;
     private String name;
     private String race;
     private String role;
@@ -75,10 +39,13 @@ public abstract class PC {
         slowed = false;
         immobilized = false;
         attacked = false;
+        level = 1;
     }
 
-    public abstract void useHeroPower(List<PC> allPcs, List<PC> onTilePcs);
     public abstract void endHeroPhaseSpecial();
+    public abstract void levelUp();
+    public abstract Buff tileBuff();
+    public abstract void startExplorationPhase();
 
     public void endHeroPhase() {
         slowed = false;
@@ -105,7 +72,7 @@ public abstract class PC {
     }
 
 
-    public void addBuff(BuffType type, Integer amount, Integer duration) {
+    public void addBuff(Buff.BuffType type, Integer amount, Integer duration) {
         buffs.add(new Buff(type, amount, duration));
     }
 
@@ -113,9 +80,8 @@ public abstract class PC {
 
     }
 
-
     public void usePower(Power power) {
-        power.activate();
+        power.activate(this);
     }
 
     public Integer takeDamage(Integer damage) {
@@ -131,6 +97,19 @@ public abstract class PC {
         return roll.compareTo(getAc()) >= 0;
     }
 
+    public Integer getBuffs(Buff.BuffType type) {
+
+        Integer bonus = 0;
+
+        for (Buff buff : buffs) {
+            if (buff.getType().equals(type)) {
+                bonus += buff.getAmount();
+            }
+        }
+
+        return bonus;
+    }
+
     public void heal(Integer amount) {
         hp += amount;
         if (hp.compareTo(maxHp) > 0) hp = maxHp;
@@ -140,7 +119,7 @@ public abstract class PC {
         Integer tmpAc = ac;
         if (!buffs.isEmpty()) {
             for (Buff buff : buffs) {
-                if (buff.getType() == BuffType.AC) {
+                if (buff.getType() == Buff.BuffType.AC) {
                     tmpAc += buff.getAmount();
                 }
             }
@@ -156,7 +135,7 @@ public abstract class PC {
         Integer tmpHp = hp;
         if (!buffs.isEmpty()) {
             for (Buff buff : buffs) {
-                if (buff.getType() == BuffType.HP) {
+                if (buff.getType() == Buff.BuffType.HP) {
                     tmpHp += buff.getAmount();
                 }
             }
@@ -166,6 +145,9 @@ public abstract class PC {
 
     public void setHp(Integer hp) {
         this.hp = hp;
+        if (this.hp.compareTo(maxHp) > 0) {
+            this.hp = maxHp;
+        }
     }
 
     public Integer getSpeed() {
@@ -174,7 +156,7 @@ public abstract class PC {
         if (immobilized) tmpSpeed = 0;
         if (!buffs.isEmpty()) {
             for (Buff buff : buffs) {
-                if (buff.getType() == BuffType.SPEED) {
+                if (buff.getType() == Buff.BuffType.SPEED) {
                     tmpSpeed += buff.getAmount();
                 }
             }
@@ -292,5 +274,13 @@ public abstract class PC {
 
     public void setAttacked(boolean attacked) {
         this.attacked = attacked;
+    }
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
     }
 }

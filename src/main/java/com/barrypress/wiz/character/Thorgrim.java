@@ -2,6 +2,7 @@ package com.barrypress.wiz.character;
 
 import com.barrypress.wiz.character.power.HealingWord;
 import com.barrypress.wiz.character.power.Power;
+import com.barrypress.wiz.object.Buff;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,7 @@ public class Thorgrim extends PC {
         setHp(8);
         setMaxHp(8);
         setSpeed(5);
-        setSpeed(4);
+        setSurge(4);
         setName("Thorgrim");
         setRace("Dwarf");
         setRole("Cleric");
@@ -25,15 +26,20 @@ public class Thorgrim extends PC {
         addStartingPower(Power.PowerType.DAILY);
     }
 
-    /**
-     * Thorgrims Hero Power is checked during the end phase. It cannot be
-     * used willingly.
-     *
-     * @param allPcs all PCs
-     * @param onTilePcs all PCs on players tile
-     */
-    public void useHeroPower(List<PC> allPcs, List<PC> onTilePcs) {
-        return;
+    public void startExplorationPhase() {}
+
+    public Buff tileBuff() {
+        // None
+        return null;
+    }
+
+    public void levelUp() {
+        setMaxHp(getMaxHp() + 2);
+        setAc(getAc() + 1);
+        setSurge(getSurge() + 1);
+        setLevel(getLevel() + 1);
+
+        // TODO choose Daily Power
     }
 
     public void endHeroPhaseSpecial() {
