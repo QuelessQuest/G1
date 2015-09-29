@@ -6,6 +6,14 @@
     <groupId>com.barrypress</groupId>
     <artifactId>G1</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <repositories>
+        <!--other repositories if any-->
+        <repository>
+            <id>project.local</id>
+            <name>project</name>
+            <url>file:${project.basedir}/repo</url>
+        </repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>org.apache.derby</groupId>
@@ -17,9 +25,39 @@
             <artifactId>gson</artifactId>
             <version>2.3.1</version>
         </dependency>
+        <dependency>
+            <groupId>com.BombingGames</groupId>
+            <artifactId>WurfelEngine</artifactId>
+            <version>1.5</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogic</groupId>
+            <artifactId>gdx</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogic</groupId>
+            <artifactId>gdx-backend-gwt</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogic</groupId>
+            <artifactId>gdx-backend-headless</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogic</groupId>
+            <artifactId>gdx-backend-jglfw</artifactId>
+            <version>1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.badlogic</groupId>
+            <artifactId>gdx-backend-lwjgl</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
     <build>
-        <sourceDirectory>src</sourceDirectory>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>

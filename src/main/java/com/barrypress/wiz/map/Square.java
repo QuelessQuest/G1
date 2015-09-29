@@ -1,4 +1,4 @@
-package com.barrypress.wiz.tile;
+package com.barrypress.wiz.map;
 
 import com.BombingGames.WurfelEngine.Core.Gameobjects.CustomBlocks;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.RenderBlock;
@@ -48,7 +48,4 @@ public class Square implements CustomBlocks {
     public RenderBlock toRenderBlock(byte id, byte value) {
         return new RenderBlock(id);
     }
-
-
-
 }

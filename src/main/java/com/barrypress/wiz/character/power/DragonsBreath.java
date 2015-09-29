@@ -1,5 +1,7 @@
 package com.barrypress.wiz.character.power;
 
+import com.barrypress.wiz.character.PC;
+
 public class DragonsBreath extends Power {
 
     public DragonsBreath() {
@@ -8,7 +10,7 @@ public class DragonsBreath extends Power {
         setName("Dragon's Breath");
     }
 
-    public void activate() {
+    public void activate(PC pc) {
 
     }
 }

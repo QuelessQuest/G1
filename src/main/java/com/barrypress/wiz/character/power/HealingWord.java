@@ -1,5 +1,7 @@
 package com.barrypress.wiz.character.power;
 
+import com.barrypress.wiz.character.PC;
+
 public class HealingWord extends Power {
 
     public HealingWord() {
@@ -8,7 +10,7 @@ public class HealingWord extends Power {
         setName("Healing Word");
     }
 
-    public void activate() {
+    public void activate(PC pc) {
 
     }
 }

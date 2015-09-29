@@ -2,7 +2,7 @@ package com.barrypress.wiz;
 
 import com.barrypress.wiz.character.PC;
 import com.barrypress.wiz.monster.Monster;
-import com.barrypress.wiz.tile.Tile;
+import com.barrypress.wiz.map.Tile;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

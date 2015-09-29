@@ -1,5 +1,7 @@
 package com.barrypress.wiz.character.power;
 
+import com.barrypress.wiz.character.PC;
+
 public class FeyStep extends Power {
 
     public FeyStep() {
@@ -8,7 +10,7 @@ public class FeyStep extends Power {
         setName("Fey Step");
     }
 
-    public void activate() {
+    public void activate(PC pc) {
 
     }
 }
