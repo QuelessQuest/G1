@@ -17,7 +17,7 @@ public class Main {
         //boardState.loadTiles();
 
         MenuItem[] menuItems = new MenuItem[]{
-                new MenuItem(0, "Start", BoardController.class, GameViewWithCamera.class),
+                new MenuItem(0, "Start", BoardController.class, BoardView.class),
                 new MenuItem(1, "Options"),
                 new MenuItem(2, "Exit")
         };

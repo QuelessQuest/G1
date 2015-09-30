@@ -31,7 +31,7 @@ public class MenuView {
      *
      * @param controller
      */
-    protected MenuView(MenuController controller) {
+    public MenuView(MenuController controller) {
         this.controller = controller;
         //load textures
         lettering = new Sprite(new Texture(Gdx.files.internal("src/main/java/com/barrypress/wiz/assets/Lettering.png")));
@@ -49,7 +49,7 @@ public class MenuView {
     /**
      * @param dt time in ms
      */
-    protected void update(float dt) {
+    public void update(float dt) {
         alpha += dt / 1000f;
         if (alpha > 1) alpha = 1;
     }
@@ -59,7 +59,7 @@ public class MenuView {
      *
      * @param warning Render alpha warning about no custom main menu in use.
      */
-    protected void render(boolean warning) {
+    public void render(boolean warning) {
         //clear & set background to black
         Gdx.gl20.glClearColor(102/255f, 109/255f, 109/255f, 1f); //102,109,109
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -81,7 +81,7 @@ public class MenuView {
     /**
      *
      */
-    protected void show() {
+    public void show() {
         Pixmap cursor = new Pixmap(Gdx.files.internal("com/BombingGames/WurfelEngine/Core/images/wecursor.png"));
         Gdx.input.setCursorImage(cursor, 0, 0);
 
