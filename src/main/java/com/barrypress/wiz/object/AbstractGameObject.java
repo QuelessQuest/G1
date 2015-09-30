@@ -112,7 +112,7 @@ public abstract class AbstractGameObject implements Serializable, HasID {
 
     /**The sprite texture which contains every object texture*/
     private transient static TextureAtlas spritesheet;
-    private transient static String spritesheetPath = "com/barrypress/wiz/assets/Spritesheet";
+    private transient static String spritesheetPath = "src/main/java/com/barrypress/wiz/assets/Spritesheet";
     private transient static Pixmap pixmap;
     private transient static TextureAtlas.AtlasRegion[][][] sprites = new TextureAtlas.AtlasRegion['z'][OBJECTTYPESNUM][VALUESNUM];//{category}{id}{value}
     private transient static int drawCalls =0;

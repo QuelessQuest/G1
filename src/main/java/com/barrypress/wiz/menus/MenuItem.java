@@ -3,13 +3,13 @@ package com.barrypress.wiz.menus;
 import com.BombingGames.WurfelEngine.Core.BasicMainMenu.BasicOptionsScreen;
 import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.GameView;
-import com.BombingGames.WurfelEngine.Core.Loading.LoadingScreen;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.barrypress.wiz.screens.DDLoadingScreen;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -117,7 +117,7 @@ public class MenuItem {
             try {
                 Controller c = getGameController().newInstance();
                 GameView v = getGameView().newInstance();
-                WE.initAndStartGame(c, v, new LoadingScreen());
+                WE.initAndStartGame(c, v, new DDLoadingScreen());
             } catch (InstantiationException ex) {
                 Gdx.app.error("MenuItem", "Failed initialising game by creating new instances of a class.");
                 Logger.getLogger(MenuItem.class.getName()).log(Level.SEVERE, null, ex);

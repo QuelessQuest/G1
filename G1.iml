@@ -11,6 +11,19 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.derby:derby:10.11.1.1" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/Downloads/iso/WurfelEngineSDKv1_5R2/WurfelEngine.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="file://$USER_HOME$/Downloads/iso/WurfelEngineSDKv1_5R2/source" />
+        </SOURCES>
+      </library>
+    </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -29,22 +42,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/iso/WurfelEngineSDKv1_5R2/WurfelEngine.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="library" name="Maven: org.apache.derby:derby:10.11.1.1" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.3.1" level="project" />
-    <orderEntry type="library" name="Maven: com.BombingGames:WurfelEngine:1.5" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogic:gdx:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogic:gdx-backend-gwt:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogic:gdx-backend-headless:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogic:gdx-backend-jglfw:1.0" level="project" />
-    <orderEntry type="library" name="Maven: com.badlogic:gdx-backend-lwjgl:1.0" level="project" />
   </component>
 </module>

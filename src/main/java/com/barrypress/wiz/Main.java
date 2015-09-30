@@ -1,7 +1,5 @@
 package com.barrypress.wiz;
 
-import com.BombingGames.WurfelEngine.Core.BasicMainMenu.GameViewWithCamera;
-import com.BombingGames.WurfelEngine.Core.Controller;
 import com.BombingGames.WurfelEngine.Core.Gameobjects.CoreData;
 import com.BombingGames.WurfelEngine.WE;
 import com.barrypress.wiz.map.Square;

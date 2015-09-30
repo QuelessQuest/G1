@@ -3,7 +3,7 @@ package com.barrypress.wiz.screens;
  * This class is public domain.
  */
 
-import com.BombingGames.WurfelEngine.Core.WEScreen;
+import com.BombingGames.WurfelEngine.Core.Loading.LoadingScreen;
 import com.BombingGames.WurfelEngine.WE;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.assets.AssetManager;
@@ -23,7 +23,7 @@ import com.barrypress.wiz.object.AbstractGameObject;
  * Class under public domain. Modified for own needs. This class renders is the default loading screen of wurfel engine.
  * @author Mats Svensson, Benedikt Vogler
  */
-public class DDLoadingScreen extends WEScreen {
+public class DDLoadingScreen extends LoadingScreen {
 
     private Stage stage;
 
@@ -47,7 +47,6 @@ public class DDLoadingScreen extends WEScreen {
 
         // Tell the manager to load assets for the loading screen
         manager.load("src/main/java/com/barrypress/wiz/screens/loading.txt", TextureAtlas.class);
-        // Wait until they are finished loading
         manager.finishLoading();
 
         manager.load(AbstractGameObject.getSpritesheetPath()+".txt", TextureAtlas.class);
@@ -81,7 +80,7 @@ public class DDLoadingScreen extends WEScreen {
         stage = new Stage(new StretchViewport(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()), WE.getEngineView().getBatch());
 
         // Get our textureatlas from the manager
-        TextureAtlas GUItexture = WE.getAsset("com/barrypress/wiz/screens/loading.txt");
+        TextureAtlas GUItexture = WE.getAsset("src/main/java/com/barrypress/wiz/screens/loading.txt");
         // Grab the regions from the atlas and create some images
         logo = new Image(GUItexture.findRegion("banner_medium"));
         loadingFrame = new Image(GUItexture.findRegion("loading-frame"));

@@ -84,7 +84,7 @@ public class BoardView extends GameView {
             getStage().addActor(rightSelector);
     */
         //setup GUI
-        TextureAtlas spriteSheet = WE.getAsset("src/main/java/com/barrypress/assets/tools.txt");
+        TextureAtlas spriteSheet = WE.getAsset("src/main/java/com/barrypress/wiz/assets/tools.txt");
 /*
         //add play button
         final Image playbutton = new Image(spritesheet.findRegion("play_button"));
