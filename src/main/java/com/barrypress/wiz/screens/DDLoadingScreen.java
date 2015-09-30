@@ -23,7 +23,7 @@ import com.barrypress.wiz.object.AbstractGameObject;
  * Class under public domain. Modified for own needs. This class renders is the default loading screen of wurfel engine.
  * @author Mats Svensson, Benedikt Vogler
  */
-public class LoadingScreen extends WEScreen {
+public class DDLoadingScreen extends WEScreen {
 
     private Stage stage;
 
@@ -41,27 +41,19 @@ public class LoadingScreen extends WEScreen {
     /**
      *To load custom files overwrite #customLoading
      */
-    public LoadingScreen() {
-        Gdx.app.log("LoadingScreen", "Initializing");
+    public DDLoadingScreen() {
+        Gdx.app.log("DDLoadingScreen", "Initializing");
         AssetManager manager = WE.getAssetManager();
 
         // Tell the manager to load assets for the loading screen
-        manager.load("com/barrypress/wiz/screens/loading.txt", TextureAtlas.class);
+        manager.load("src/main/java/com/barrypress/wiz/screens/loading.txt", TextureAtlas.class);
         // Wait until they are finished loading
         manager.finishLoading();
 
-        // Add everything to be loaded, for instance:
-        //WurfelEngine.getInstance().manager.load("com/BombingGames/Game/Blockimages/Spritesheet.png", Pixmap.class);
         manager.load(AbstractGameObject.getSpritesheetPath()+".txt", TextureAtlas.class);
-        if (WE.CVARS.getValueB("LEnormalMapRendering")) {
-            if (!Gdx.files.internal(AbstractGameObject.getSpritesheetPath()+"Normal.png").exists()){
-                Gdx.app.error("Loading", "No Normal Map Texture Found. Must be located at spritesheet path and end with the suffix \"Normal.png\". You can disable the normal map rendering to prevent a crash.");
-            } else {
-                manager.load(AbstractGameObject.getSpritesheetPath()+"Normal.png", Texture.class);
-            }
-        }
+        manager.load("src/main/java/com/barrypress/wiz/assets/tools.txt", TextureAtlas.class);
 
-        manager.load("com/BombingGames/WurfelEngine/Core/skin/gui.txt", TextureAtlas.class);
+
         manager.load("com/BombingGames/WurfelEngine/Core/images/bloodblur.png", Texture.class);
 
         // manager.load("com/BombingGames/WurfelEngine/Game/Blockimages/Spritesheet.png", Pixmap.class);
@@ -193,7 +185,7 @@ public class LoadingScreen extends WEScreen {
 
     @Override
     public void dispose() {
-        Gdx.app.debug("LoadingScreen", "disposing");
+        Gdx.app.debug("DDLoadingScreen", "disposing");
         // Dispose the loading assets as we no longer need them
         stage.dispose();
         WE.getAssetManager().unload("com/barrypress/wiz/screens/loading.txt");//causes programm to stop and show a white screen!
